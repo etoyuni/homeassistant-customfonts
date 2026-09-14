@@ -5,7 +5,7 @@
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz)
 [![HA Version](https://img.shields.io/badge/Home%20Assistant-2023.9%2B-blue.svg)](https://www.home-assistant.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub Release](https://img.shields.io/github/v/release/itsyuni/homeassistant-customfonts)](https://github.com/itsyuni/homeassistant-customfonts/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/etoyuni/homeassistant-customfonts)](https://github.com/etoyuni/homeassistant-customfonts/releases)
 
 > Global font replacement across the entire Home Assistant (Lovelace) interface — Google Fonts, custom font uploads, system fonts. Full Shadow DOM support included.
 
@@ -32,12 +32,12 @@
 
 The easiest way to install is through [HACS](https://hacs.xyz).
 
-[![Add to HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=itsyuni&repository=homeassistant-customfonts&category=integration)
+[![Add to HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=etoyuni&repository=homeassistant-customfonts&category=integration)
 
 ### Steps
 
 1. Click the button above **or** open HACS → Integrations → ⋮ → Custom repositories
-2. Add `https://github.com/itsyuni/homeassistant-customfonts` with category **Integration**
+2. Add `https://github.com/etoyuni/homeassistant-customfonts` with category **Integration**
 3. Find **Home Assistant Custom Fonts** in the HACS store and click **Download**
 4. Restart Home Assistant
 5. Go to **Settings → Devices & Services → Add Integration** → search for **Home Assistant Custom Fonts**
@@ -47,7 +47,7 @@ The easiest way to install is through [HACS](https://hacs.xyz).
 
 ## 🛠 Manual Installation
 
-1. Download the [latest release](https://github.com/itsyuni/homeassistant-customfonts/releases/latest)
+1. Download the [latest release](https://github.com/etoyuni/homeassistant-customfonts/releases/latest)
 2. Copy the `custom_components/font_manager/` folder into your HA config directory:
    ```
    config/
@@ -118,4 +118,4 @@ New languages are welcome — feel free to submit a Pull Request :)
 
 ## 📄 License
 
-MIT © [itsyuni](https://github.com/itsyuni)
+MIT © [etoyuni](https://github.com/etoyuni)
