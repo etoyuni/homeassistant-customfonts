@@ -5,7 +5,7 @@
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz)
 [![HA Version](https://img.shields.io/badge/Home%20Assistant-2023.9%2B-blue.svg)](https://www.home-assistant.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub Release](https://img.shields.io/github/v/release/itsyuni/homeassistant-customfonts)](https://github.com/itsyuni/homeassistant-customfonts/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/etoyuni/homeassistant-customfonts)](https://github.com/etoyuni/homeassistant-customfonts/releases)
 
 > Глобальная замена шрифтов во всём интерфейсе Home Assistant (Lovelace) — Google Fonts, загрузка собственных шрифтов, системные шрифты. Поддержка Shadow DOM включена.
 
@@ -32,12 +32,12 @@
 
 Самый простой способ — через [HACS](https://hacs.xyz).
 
-[![Добавить в HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=itsyuni&repository=homeassistant-customfonts&category=integration)
+[![Добавить в HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=etoyuni&repository=homeassistant-customfonts&category=integration)
 
 ### Шаги
 
 1. Нажмите кнопку выше **или** откройте HACS → Интеграции → ⋮ → Пользовательские репозитории
-2. Добавьте `https://github.com/itsyuni/homeassistant-customfonts` с категорией **Integration**
+2. Добавьте `https://github.com/etoyuni/homeassistant-customfonts` с категорией **Integration**
 3. Найдите **Home Assistant Custom Fonts** в магазине HACS и нажмите **Скачать**
 4. Перезапустите Home Assistant
 5. Перейдите в **Настройки → Устройства и службы → Добавить интеграцию** → найдите **Home Assistant Custom Fonts**
@@ -47,7 +47,7 @@
 
 ## 🛠 Ручная установка
 
-1. Скачайте [последний релиз](https://github.com/itsyuni/homeassistant-customfonts/releases/latest)
+1. Скачайте [последний релиз](https://github.com/etoyuni/homeassistant-customfonts/releases/latest)
 2. Скопируйте папку `custom_components/font_manager/` в директорию конфигурации HA:
    ```
    config/
@@ -118,4 +118,4 @@ Shadow DOM — главная сложность во frontend HA. `<style>` в 
 
 ## 📄 Лицензия
 
-MIT © [itsyuni](https://github.com/itsyuni)
+MIT © [etoyuni](https://github.com/etoyuni)
