@@ -78,7 +78,7 @@ const TRANSLATIONS = {
 
     lang_label: "Language",
   },
-  en-GB: {
+  'en-GB': {
     title: "Home Assistant Custom Fonts",
     subtitle: "Globally customise fonts across the entire Home Assistant interface",
     by: "by",
