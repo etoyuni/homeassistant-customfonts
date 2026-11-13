@@ -209,6 +209,11 @@
         `--paper-font-title_-_font-family: ${stack} !important;`,
         `--paper-font-caption_-_font-family: ${stack} !important;`,
         `--paper-font-common-base_-_font-family: ${stack} !important;`,
+        // Material Web (MD3) list items — HA removed its own bridge for these
+        // in 2026.11; custom cards that render md-list still consume them.
+        `--md-list-item-label-text-font: ${stack} !important;`,
+        `--md-list-item-supporting-text-font: ${stack} !important;`,
+        `--md-list-item-trailing-supporting-text-font: ${stack} !important;`,
       ].join("\n  ");
 
       const sizeRule =
@@ -216,13 +221,21 @@
           ? `\n  font-size: ${cfg.font_size}px !important;`
           : "";
 
+      // `font-family` MUST be !important: HA ships a boot <style> in index.html
+      // with `body { font-family: Roboto, Noto, sans-serif }`. Since HA 2026.11
+      // the sidebar / notification drawer items no longer set their own
+      // font-family (they migrated from mwc-list, which read our
+      // --mdc-typography-* overrides, to inheritance-based ha-list-item-* and
+      // WebAwesome components). Those items now inherit from <body>, so we
+      // have to win the cascade against the boot style — see _injectStyle(),
+      // which also appends (instead of prepending) in document.head.
       // :root + html + body to be safe — same declaration block
       return `
         :root,
         html,
         body {
           ${varOverrides}
-          font-family: ${stack};${sizeRule}
+          font-family: ${stack} !important;${sizeRule}
         }
       `.trim();
     }
@@ -293,9 +306,19 @@
       style.setAttribute(ATTR, "true");
       style.textContent = css;
 
-      // For shadow roots, insert at the top so it can be overridden by component styles
-      const target = root.head ?? root;
-      target.prepend(style);
+      if (root === document.head || root === document) {
+        // Document level: append so we come AFTER HA's own <style> tags
+        // (e.g. the index.html boot style `body { font-family: Roboto ... }`).
+        // Later rules win ties in the cascade — critical for the
+        // inheritance-based components introduced in HA 2026.11+
+        // (sidebar, notification drawer, ha-list-item-*, WebAwesome).
+        (root.head ?? root).appendChild(style);
+      } else {
+        // For shadow roots, insert at the top so it can be
+        // overridden by the component's own styles
+        const target = root.head ?? root;
+        target.prepend(style);
+      }
     }
 
     /**
