@@ -504,7 +504,7 @@ class FontManagerPanel extends HTMLElement {
             </h1>
             <p class="subtitle" id="panelSubtitle">${t.subtitle}</p>
             <a class="author-link"
-               href="https://github.com/itsyuni"
+               href="https://github.com/etoyuni"
                target="_blank"
                rel="noopener noreferrer">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -521,7 +521,7 @@ class FontManagerPanel extends HTMLElement {
                   .81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225
                   .69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
               </svg>
-              <span id="authorLabel">${t.by} @itsyuni</span>
+              <span id="authorLabel">${t.by} @etoyuni</span>
             </a>
           </div>
 
@@ -703,7 +703,7 @@ class FontManagerPanel extends HTMLElement {
     };
 
     set("panelSubtitle", t.subtitle);
-    set("authorLabel", `${t.by} @itsyuni`);
+    set("authorLabel", `${t.by} @etoyuni`);
 
     set("sectionGeneral", t.section_general);
     set("labelEnabled", t.label_enabled);
