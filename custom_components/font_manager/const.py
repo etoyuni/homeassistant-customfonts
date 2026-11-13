@@ -46,6 +46,24 @@ FONTS_SUBDIR = "font_manager/fonts"
 FRONTEND_SCRIPT = "font-manager.js"
 PANEL_SCRIPT = "font-manager-panel.js"
 
+# Integration version from manifest.json. Used as a cache-bust query on the
+# injected JS URLs: without it browsers may keep serving a heuristically
+# cached stale script after a HACS upgrade, making shipped fixes appear
+# "not working" until a hard refresh.
+def _integration_version() -> str:
+    import json
+    from pathlib import Path
+
+    try:
+        manifest = Path(__file__).parent / "manifest.json"
+        with manifest.open(encoding="utf-8") as f:
+            return str(json.load(f).get("version", "0.0.0"))
+    except Exception:  # pragma: no cover - corrupted manifest
+        return "0.0.0"
+
+
+INTEGRATION_VERSION = _integration_version()
+
 # REST API paths
 # We deliberately avoid the `/api/*` namespace which is reserved for HA core.
 # All custom endpoints live under `/font_manager/v1/*`.

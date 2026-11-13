@@ -30,6 +30,7 @@ from .const import (
     FONTS_PATH,
     FRONTEND_SCRIPT,
     PANEL_SCRIPT,
+    INTEGRATION_VERSION,
     DATA_CONFIG,
     DEFAULT_ENABLED,
     DEFAULT_FONT_SOURCE,
@@ -127,8 +128,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     )
 
     # ── Inject the style module into every HA page ───────────────────────────
-    # This makes font-manager.js load on every Lovelace page automatically
-    add_extra_js_url(hass, f"{STATIC_PATH}/{FRONTEND_SCRIPT}", es5=False)
+    # This makes font-manager.js load on every Lovelace page automatically.
+    # The ?v= query busts browser caches when a new version ships.
+    add_extra_js_url(
+        hass, f"{STATIC_PATH}/{FRONTEND_SCRIPT}?v={INTEGRATION_VERSION}", es5=False
+    )
 
     # ── Register REST API views ──────────────────────────────────────────────
     hass.http.register_view(FontManagerConfigView(hass, entry))
@@ -141,7 +145,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         hass,
         webcomponent_name="font-manager-panel",
         frontend_url_path="font-manager",
-        module_url=f"{STATIC_PATH}/{PANEL_SCRIPT}",
+        module_url=f"{STATIC_PATH}/{PANEL_SCRIPT}?v={INTEGRATION_VERSION}",
         sidebar_title="Custom Fonts",
         sidebar_icon="mdi:format-font",
         require_admin=True,
